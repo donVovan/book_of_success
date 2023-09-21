@@ -50,7 +50,11 @@ function DayPage() {
         setSelectedDate(new Date(entryToEdit.date));
         setInputValue(entryToEdit.text);
         setEditIndex(index);
-        //onsole.log(entryToEdit)
+    }
+
+    //Функция для смены даты
+    function handleShowEntries(date) {
+        console.log("Выбранная дата", date)
     }
 
     return (
@@ -59,6 +63,7 @@ function DayPage() {
             <Calendar
                 onChange={handleDateChange}
                 entries={entries}
+                handleShowEntries={handleShowEntries}
             />
             <div className="entry-input">
                 <input

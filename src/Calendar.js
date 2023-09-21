@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./Calendar.css";
 
-function Calendar({onChange, entries}) {
+function Calendar({onChange, entries, handleShowEntries}) {
     const [selectedDate, setSelectedDate] = useState(new Date());
 
     function handleChange(date) {
@@ -64,7 +64,9 @@ function Calendar({onChange, entries}) {
                     weekDays.push(
                         <td
                             key={dayCounter}
-                            className={dayStyles}>
+                            className={dayStyles}
+                            onClick={()=> handleShowEntries(currentDate)}
+                        >
                             {dayCounter}
                         </td>
                     );

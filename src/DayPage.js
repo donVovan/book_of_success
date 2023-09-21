@@ -58,7 +58,6 @@ function DayPage() {
 
     //Функция для смены даты
     function handleShowEntries(date) {
-        console.log("Выбранная дата", date);
         setSelectedDate(date);
     }
 

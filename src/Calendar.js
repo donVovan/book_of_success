@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function Calendar({onChange}) {
+function Calendar({onChange, entries}) {
     const [selectedDate, setSelectedDate] = useState(new Date());
 
     function handleChange(date) {
@@ -49,20 +49,31 @@ function Calendar({onChange}) {
                 if ((week === 0 && day < firstDay) || dayCounter > lastDate) {
                     weekDays.push(<td></td>);
                 } else {
+                    const currentDate = new Date(year, month, dayCounter);
+                    const hasEntries = entries.some((entry) =>
+                        entry.date && entry.date.toDateString() === currentDate.toDateString()
+                    );
+
+                    let dayStyles = dayCounter === selectedDate.getDate() ? 'selected' : '';
+                    if (hasEntries) {
+                        dayStyles += ' highlighted';
+                    }
+
                     weekDays.push(
                         <td
                             key={dayCounter}
-                            className={dayCounter === selectedDate.getDate() ? 'selected' : ''}>
+                            className={dayStyles}>
                             {dayCounter}
                         </td>
                     );
+
                     dayCounter++;
                 }
             }
 
             days.push(<tr>{weekDays}</tr>);
-            if (dayCounter > lastDate) break;
-        }
+                if (dayCounter > lastDate) break;
+            }
 
         return (
             <table className="calendar">

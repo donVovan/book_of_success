@@ -52,7 +52,10 @@ function DayPage() {
     return (
         <div className="day-page">
             <h2>Страница дня</h2>
-            <Calendar onChange={handleDateChange} />
+            <Calendar
+                onChange={handleDateChange}
+                entries={entries}
+            />
             <div className="entry-input">
                 <input
                     type="text"

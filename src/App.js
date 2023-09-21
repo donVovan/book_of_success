@@ -1,9 +1,10 @@
 import React from "react";
+import DayPage from "./DayPage";
 
 function App() {
   return (
     <div>
-      Здесь и начнем.
+      <DayPage />
     </div>
   );
 }

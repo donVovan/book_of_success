@@ -5,6 +5,7 @@ function DayPage() {
     const [selectedDate, setSelectedDate] = useState('');
     const [inputValue, setInputValue] = useState('');
     const [entries, setEntries] = useState([]);
+    const [editIndex, setEditIndex] = useState(-1);
 
     // Функция для обработки выбора даты
     function handleDateChange(date) {
@@ -14,13 +15,23 @@ function DayPage() {
     // Функция для обработки Добавления записи
 
     function handleAddEntry() {
-        if (inputValue.trim() !== ''){
-            const newEntry = {
-                date: selectedDate,
-                text: inputValue
-            };
-            setEntries([...entries, newEntry]);
-            setInputValue('')
+        if (inputValue.trim() !== '') {
+            if (editIndex >= 0) {
+                const updatedEntries = Array.from(entries);
+                updatedEntries[editIndex] = {
+                    date: selectedDate,
+                    text: inputValue
+                };
+                setEntries(updatedEntries);
+                setEditIndex(-1);
+            } else {
+                const newEntry = {
+                    date: selectedDate,
+                    text: inputValue
+                };
+                setEntries([...entries, newEntry]);
+            }
+            setInputValue('');
         }
     }
 
@@ -28,6 +39,14 @@ function DayPage() {
     function handleDeleteEntry(index) {
         const updatedEntries = entries.filter((entry, i) => i !== index);
         setEntries(updatedEntries);
+    }
+
+    //Функция для редактирования записи
+    function handleEditEntry(index) {
+        const entryToEdit = entries[index];
+        setSelectedDate(entryToEdit.date);
+        setInputValue(entryToEdit.text);
+        setEditIndex(index);
     }
 
     return (
@@ -47,6 +66,7 @@ function DayPage() {
                     <li className="entry-item" key={index}>
                         <p>{entry.text}</p>
                         <button onClick={()=> handleDeleteEntry(index)}>Удалить</button>
+                        <button onClick={()=> handleEditEntry(index)}>Редактировать</button>
                     </li>
                 ))}
             </ul>

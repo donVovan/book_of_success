@@ -18,6 +18,9 @@ function DayPage() {
     // Функция для обработки Добавления записи
 
     function handleAddEntry() {
+        if (selectedDate.toDateString() !== new Date().toDateString()){
+            return;
+        }
         if (inputValue.trim() !== '') {
             if (editIndex >= 0) {
                 const updatedEntries = Array.from(entries);

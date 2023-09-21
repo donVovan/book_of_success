@@ -11,3 +11,6 @@
 }
 
 /*  остальные стили по усмотрению */
+.highlighted {
+    font-weight: bold;
+}

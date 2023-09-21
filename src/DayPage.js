@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Calendar from "./Calendar";
+import "./Calendar.css"
 
 function DayPage() {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -69,6 +70,7 @@ function DayPage() {
                 entries={entries}
                 handleShowEntries={handleShowEntries}
             />
+            {selectedDate.toDateString() === new Date().toDateString() && (
             <div className="entry-input">
                 <input
                     type="text"
@@ -77,6 +79,7 @@ function DayPage() {
                 />
                 <button onClick={handleAddEntry}>Добавить запись</button>
             </div>
+            )}
             <ul className="entry-list">
                 {entries.map((entry, index) => (
                     <li className="entry-item" key={index}>

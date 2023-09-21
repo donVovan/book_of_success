@@ -25,7 +25,7 @@ function Calendar({onChange, entries}) {
         const year = selectedDate.getFullYear();
         const month = selectedDate.getMonth();
 
-        const firstDay = new Date(year, month, 1).getDay();
+        const firstDay = new Date(year, month, 0).getDay();
         const lastDate = new Date(year, month + 1, 0).getDate();
 
         const days = [];

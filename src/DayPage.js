@@ -2,9 +2,12 @@ import React, {useState} from "react";
 import Calendar from "./Calendar";
 
 function DayPage() {
-    const [selectedDate, setSelectedDate] = useState('');
+    const [selectedDate, setSelectedDate] = useState(new Date());
     const [inputValue, setInputValue] = useState('');
-    const [entries, setEntries] = useState([]);
+    const [entries, setEntries] = useState([{
+        date:'',
+        text:''
+    }]);
     const [editIndex, setEditIndex] = useState(-1);
 
     // Функция для обработки выбора даты
@@ -44,9 +47,10 @@ function DayPage() {
     //Функция для редактирования записи
     function handleEditEntry(index) {
         const entryToEdit = entries[index];
-        setSelectedDate(entryToEdit.date);
+        setSelectedDate(new Date(entryToEdit.date));
         setInputValue(entryToEdit.text);
         setEditIndex(index);
+        //onsole.log(entryToEdit)
     }
 
     return (

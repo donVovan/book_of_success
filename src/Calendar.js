@@ -22,6 +22,7 @@ function Calendar({onChange, entries}) {
     }
 
     function renderCalendar() {
+
         const year = selectedDate.getFullYear();
         const month = selectedDate.getMonth();
 

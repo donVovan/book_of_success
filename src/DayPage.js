@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Calendar from "./Calendar";
-import "./DayPage.css"
+import "./DayPage.css";
 
 function DayPage() {
     const [isEditing, setIsEditing] = useState(false);

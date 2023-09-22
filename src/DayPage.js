@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import Calendar from "./Calendar";
-import "./Calendar.css"
+import "./DayPage.css"
 
 function DayPage() {
+    const [isEditing, setIsEditing] = useState(false);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [inputValue, setInputValue] = useState('');
     const [entries, setEntries] = useState([{
@@ -23,7 +24,7 @@ function DayPage() {
             return;
         }
         if (inputValue.trim() !== '') {
-            if (editIndex >= 0) {
+            if (isEditing) {
                 const updatedEntries = Array.from(entries);
                 updatedEntries[editIndex] = {
                     date: selectedDate,
@@ -31,6 +32,7 @@ function DayPage() {
                 };
                 setEntries(updatedEntries);
                 setEditIndex(-1);
+                setIsEditing(false);
             } else {
                 const newEntry = {
                     date: selectedDate,
@@ -51,9 +53,10 @@ function DayPage() {
     //Функция для редактирования записи
     function handleEditEntry(index) {
         const entryToEdit = entries[index];
-        setSelectedDate(new Date(entryToEdit.date));
+        // setSelectedDate(new Date(entryToEdit.date));
         setInputValue(entryToEdit.text);
         setEditIndex(index);
+        setIsEditing(true);
     }
 
     //Функция для смены даты
@@ -76,7 +79,9 @@ function DayPage() {
                     value={inputValue}
                     onChange={(event) => setInputValue(event.target.value)}
                 />
-                <button onClick={handleAddEntry}>Добавить запись</button>
+                <button onClick={handleAddEntry}>
+                    {isEditing ? 'Сохранить' : 'Добавить'}
+                </button>
             </div>
             )}
             <ul className="entry-list">

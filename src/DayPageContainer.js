@@ -30,8 +30,10 @@ function DayPageContainer() {
     }
 
     function handleEditEntry(index) {
-        // Функция для редактирования записи
-        // ...
+        const entryToEdit = entries[index];
+        setInputValue(entryToEdit.text);
+        setEditIndex(index);
+        setIsEditing(true);
     }
 
     function handleShowEntries(date) {

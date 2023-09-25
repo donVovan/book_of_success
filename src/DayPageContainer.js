@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import DayPage from "./DayPage";
 import Calendar from "./Calendar";
+import entry from "./Entry";
 
 function DayPageContainer() {
     const [isEditing, setIsEditing] = useState(false);
@@ -24,8 +25,8 @@ function DayPageContainer() {
     }
 
     function handleDeleteEntry(index) {
-        // Функция для обработки удаления записи
-        // ...
+        const updatedEntries = entries.filter((entry, i) => i !== index);
+        setEntries(updatedEntries)
     }
 
     function handleEditEntry(index) {

@@ -3,7 +3,7 @@ import Calendar from "./Calendar";
 import "./DayPage.css";
 
 function DayPage() {
-    const [isEditing, setIsEditing] = useState(false);
+   /* const [isEditing, setIsEditing] = useState(false);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [inputValue, setInputValue] = useState('');
     const [entries, setEntries] = useState([{
@@ -62,7 +62,7 @@ function DayPage() {
     //Функция для смены даты
     function handleShowEntries(date) {
         setSelectedDate(date);
-    }
+    }*/
 
     return (
         <div className="day-page">

@@ -76,9 +76,9 @@ function DayPage({
         <div className="day-page">
             <h2>Страница дня {selectedDate.toDateString()}</h2>
             <Calendar
-                onChange={handleDateChange}
+                // onChange={handleDateChange}
                 entries={entries}
-                handleShowEntries={handleShowEntries}
+                // handleShowEntries={handleShowEntries}
             />
             {selectedDate.toDateString() === new Date().toDateString() && (
             <div className="entry-input">

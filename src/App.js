@@ -1,10 +1,11 @@
 import React from "react";
-import DayPage from "./DayPage";
+import dayPageContainer from "./DayPageContainer";
+import DayPageContainer from "./DayPageContainer";
 
 function App() {
   return (
     <div>
-      {/*<DayPage />*/}
+      <DayPageContainer />
     </div>
   );
 }

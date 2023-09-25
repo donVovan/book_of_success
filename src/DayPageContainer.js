@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import DayPage from "./DayPage";
 import Calendar from "./Calendar";
-import entry from "./Entry";
 
 function DayPageContainer() {
     const [isEditing, setIsEditing] = useState(false);
@@ -20,8 +19,28 @@ function DayPageContainer() {
     }
 
     function handleAddEntry() {
-        // Функция для обработки добавления записи
-        // ...
+        if (selectedDate.toDateString() !== new Date().toDateString()){
+            return;
+        }
+        if (inputValue.trim() !== ''){
+            if (isEditing){
+                const updatedEntries = Array.from(entries);
+                updatedEntries[editIndex] = {
+                    date: selectedDate,
+                    text: inputValue
+                };
+                setEntries(updatedEntries);
+                setEditIndex(-1);
+                setIsEditing(false);
+            } else {
+                const newEntry = {
+                    date: selectedDate,
+                    text: inputValue
+                };
+                setEntries([...entries, newEntry]);
+            }
+            setInputValue('');
+        }
     }
 
     function handleDeleteEntry(index) {

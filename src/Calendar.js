@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import "./Calendar.css";
+import CalendarPr from "./CalendarPr";
 
 function Calendar({onChange, entries, handleShowEntries}) {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -86,15 +87,13 @@ function Calendar({onChange, entries, handleShowEntries}) {
         );
     }
 
-    return <div className="calendar">
-        <div className="header">
-            <button onClick={previousMonth}>Предыдущий месяц</button>
-            <h2>{selectedDate.toLocaleString('default', {month: 'long', year: 'numeric'})}</h2>
-            <button onClick={nextMonth}>Следующий месяц</button>
-        </div>
-        <div className="days">
-            {renderCalendar()}
-        </div>
+    return <div>
+        <CalendarPr
+            previousMonth={previousMonth}
+            nextMonth={nextMonth}
+            selectedDate={selectedDate}
+            renderCalendar={renderCalendar}
+        />
     </div>
 }
 

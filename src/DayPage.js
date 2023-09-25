@@ -1,8 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import Calendar from "./Calendar";
 import "./DayPage.css";
 
-function DayPage() {
+function DayPage({
+                     selectedDate,
+                     inputValue,
+                     isEditing,
+                     entries,
+                     handleAddEntry,
+                     handleDeleteEntry,
+                     handleEditEntry,
+                     setInputValue}) {
    /* const [isEditing, setIsEditing] = useState(false);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [inputValue, setInputValue] = useState('');

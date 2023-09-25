@@ -69,6 +69,7 @@ function DayPageContainer() {
                 handleAddEntry={handleAddEntry}
                 handleDeleteEntry={handleDeleteEntry}
                 handleEditEntry={handleEditEntry}
+                setInputValue={setInputValue}
             />
             <Calendar
                 selectedDate={selectedDate}

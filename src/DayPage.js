@@ -13,9 +13,9 @@ function DayPage() {
     const [editIndex, setEditIndex] = useState(-1);
 
     // Функция для обработки выбора даты
-    function handleDateChange(date) {
+   /* function handleDateChange(date) {
         setSelectedDate(date);
-    }
+    }*/
 
     // Функция для обработки Добавления записи
 
@@ -68,7 +68,7 @@ function DayPage() {
         <div className="day-page">
             <h2>Страница дня {selectedDate.toDateString()}</h2>
             <Calendar
-                onChange={handleDateChange}
+                // onChange={handleDateChange}
                 entries={entries}
                 handleShowEntries={handleShowEntries}
             />

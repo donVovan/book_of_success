@@ -2,13 +2,13 @@ import React, {useState} from "react";
 import "./Calendar.css";
 import CalendarPr from "./CalendarPr";
 
-function Calendar({onChange, entries, handleShowEntries}) {
+function Calendar({/*onChange,*/ entries, handleShowEntries}) {
     const [selectedDate, setSelectedDate] = useState(new Date());
 
-    function handleChange(date) {
+ /*   function handleChange(date) {
         setSelectedDate(date);
         onChange(date);
-    }
+    }*/
 
     function previousMonth() {
         const currentDate = new Date(selectedDate);

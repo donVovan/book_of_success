@@ -4,7 +4,7 @@ import DayPage from "./DayPage";
 function App() {
   return (
     <div>
-      <DayPage />
+      {/*<DayPage />*/}
     </div>
   );
 }

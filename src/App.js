@@ -1,5 +1,5 @@
 import React from "react";
-import DayPage from "./DayPage";
+import DayPage from "./components/containers/DayPage";
 
 function App() {
   return (

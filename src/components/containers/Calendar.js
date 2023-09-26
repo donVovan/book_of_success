@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import "./Calendar.css";
-import CalendarPr from "./CalendarPr";
+import "../presentational/Calendar.css";
+import CalendarPr from "../presentational/CalendarPr";
 
 function Calendar({/*onChange,*/ entries, handleShowEntries}) {
     const [selectedDate, setSelectedDate] = useState(new Date());

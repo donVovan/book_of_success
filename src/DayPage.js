@@ -65,16 +65,9 @@ function DayPage() {
         setSelectedDate(date);
     }
 
-    return (
-        <div className="day-page">
-            <Calendar
-                // onChange={handleDateChange}
-                entries={entries}
-                handleShowEntries={handleShowEntries}
-                selectedDate={selectedDate}
-            />
-            {selectedDate.toDateString() === new Date().toDateString() && (
-            <div className="entry-input">
+    function handleDateSelect() {
+        if (selectedDate.toDateString() === new Date().toDateString()){
+            return <div className="entry-input">
                 <input
                     type="text"
                     value={inputValue}
@@ -84,7 +77,18 @@ function DayPage() {
                     {isEditing ? 'Сохранить' : 'Добавить'}
                 </button>
             </div>
-            )}
+        }
+    }
+
+    return (
+        <div className="day-page">
+            <Calendar
+                // onChange={handleDateChange}
+                entries={entries}
+                handleShowEntries={handleShowEntries}
+                selectedDate={selectedDate}
+            />
+            {handleDateSelect()}
             <DayPagePr
             entries={entries}
             handleDeleteEntry={handleDeleteEntry}

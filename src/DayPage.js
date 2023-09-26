@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Calendar from "./Calendar";
 import "./DayPage.css"
+import DayPagePr from "./DayPagePr";
 
 function DayPage() {
     const [isEditing, setIsEditing] = useState(false);
@@ -66,11 +67,11 @@ function DayPage() {
 
     return (
         <div className="day-page">
-            <h2>Страница дня {selectedDate.toDateString()}</h2>
             <Calendar
                 // onChange={handleDateChange}
                 entries={entries}
                 handleShowEntries={handleShowEntries}
+                selectedDate={selectedDate}
             />
             {selectedDate.toDateString() === new Date().toDateString() && (
             <div className="entry-input">

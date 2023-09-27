@@ -3,7 +3,7 @@ import React from "react";
 function CalendarPr({previousMonth, nextMonth, selectedDate, renderCalendar}) {
     return <div className="calendar">
         <h2>Страница дня {selectedDate.toDateString()}</h2>
-        <div className="header">
+        <div>
             <button onClick={previousMonth}>Предыдущий месяц</button>
             <h2>{selectedDate.toLocaleString('default', {month: 'long', year: 'numeric'})}</h2>
             <button onClick={nextMonth}>Следующий месяц</button>

@@ -7,9 +7,9 @@ import Footer from "./components/Footer";
 function App() {
     return (
         <div className="wrapper">
-            <Header/>
-            <DayPage/>
-            <Footer />
+            <div className="header"><Header/></div>
+            <div className="content"><DayPage/></div>
+            <div className="footer"><Footer/></div>
         </div>
     );
 }

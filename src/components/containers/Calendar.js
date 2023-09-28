@@ -86,14 +86,13 @@ function Calendar({/*onChange,*/ entries, handleShowEntries}) {
         );
     }
 
-    return <div>
-        <CalendarPr
+    return <CalendarPr
             previousMonth={previousMonth}
             nextMonth={nextMonth}
             selectedDate={selectedDate}
             renderCalendar={renderCalendar}
         />
-    </div>
+
 }
 
 export default Calendar;

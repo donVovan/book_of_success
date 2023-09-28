@@ -6,8 +6,8 @@ function DayPagePr({entries, handleDeleteEntry, handleEditEntry}) {
             {entries.map((entry, index) => (
                 <li className="entry-item" key={index}>
                     <p>{entry.text}</p>
-                    <button onClick={() => handleDeleteEntry(index)}>Удалить</button>
-                    <button onClick={() => handleEditEntry(index)}>Редактировать</button>
+                    <button onClick={() => handleDeleteEntry(index)} className="button">Удалить</button>
+                    <button onClick={() => handleEditEntry(index)} className="button">Редактировать</button>
                 </li>
             ))}
         </ul>

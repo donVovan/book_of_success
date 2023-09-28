@@ -52,4 +52,28 @@ body._lock {
     flex-direction: column;
     min-height: 100vh;
 }
-
+.header {
+    font-size: 36px;
+    color: #e08e38;
+    margin: 20px 0 100px 0;
+    text-align: center;
+    font-family: monospace;
+    letter-spacing: 1rem;
+}
+.content {
+    flex-grow: 1;
+}
+.footer {
+    color: #e08e38;
+    font-size: 12px;
+    font-family: monospace;
+    letter-spacing: 0.1rem;
+    flex-shrink: 0;
+    padding: 5px 0;
+}
+.highlighted {
+    font-weight: bold;
+}
+.selected {
+    color: red;
+}

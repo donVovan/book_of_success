@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import Calendar from "./Calendar";
-import "./DayPage.css"
 import DayPagePr from "../presentational/DayPagePr";
 
 function DayPage() {

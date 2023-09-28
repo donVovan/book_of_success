@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import "../presentational/Calendar.css";
 import CalendarPr from "../presentational/CalendarPr";
 
 function Calendar({/*onChange,*/ entries, handleShowEntries}) {

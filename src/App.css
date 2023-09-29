@@ -48,4 +48,19 @@ body._lock {
 .wrapper {
     margin: 0 auto;
     max-width: 960px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    flex-shrink: 0;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+.footer {
+    flex-shrink: 0;
 }

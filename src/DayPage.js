@@ -65,7 +65,7 @@ function DayPage() {
 
     return (
         <div className="day-page">
-            <h2>Страница дня {selectedDate.toDateString()}</h2>
+            <h2>Страница дня {selectedDate.toLocaleString('ru', {day: 'numeric', month: 'long', year: 'numeric'})}</h2>
             <Calendar
                 // onChange={handleDateChange}
                 entries={entries}

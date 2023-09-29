@@ -68,6 +68,20 @@ body._lock {
 .content {
     flex-grow: 1;
 }
+.dayTittle {
+    margin-bottom: 50px;
+    font-size: 1.5rem;
+}
+
+.selectMonth {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
+    font-size: 1.3rem;
+    max-width: 460px;
+}
 
 .footer {
     color: #391C1C;

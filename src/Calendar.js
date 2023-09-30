@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./Calendar.css";
 import CalendarPr from "./CalendarPr";
 
-function Calendar({/*onChange,*/ entries, handleShowEntries}) {
+function Calendar({entries, handleShowEntries, handleDateChange, renderList}) {
     const [selectedDate, setSelectedDate] = useState(new Date());
 
  /*   function handleChange(date) {
@@ -93,6 +93,8 @@ function Calendar({/*onChange,*/ entries, handleShowEntries}) {
             nextMonth={nextMonth}
             selectedDate={selectedDate}
             renderCalendar={renderCalendar}
+            handleDateChange={handleDateChange}
+            renderList={renderList}
         />
     </div>
 }

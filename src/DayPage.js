@@ -94,12 +94,11 @@ function DayPage() {
         <div className="day-page">
             {renderDayTittle()}
             <Calendar
-                // onChange={handleDateChange}
+                handleDateChange={handleDateChange}
+                renderList={renderList}
                 entries={entries}
                 handleShowEntries={handleShowEntries}
             />
-            {handleDateChange()}
-            {renderList()}
         </div>
     );
 }

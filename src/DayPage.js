@@ -12,9 +12,20 @@ function DayPage() {
     const [editIndex, setEditIndex] = useState(-1);
 
     // Функция для обработки выбора даты
-   /* function handleDateChange(date) {
-        setSelectedDate(date);
-    }*/
+   function handleDateChange() {
+        if (selectedDate.toDateString() === new Date().toDateString()){
+            return <div className="entry-input">
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(event) => setInputValue(event.target.value)}
+                />
+                <button onClick={handleAddEntry}>
+                    {isEditing ? 'Сохранить' : 'Добавить'}
+                </button>
+            </div>
+        }
+    }
 
     // Функция для обработки Добавления записи
 
@@ -63,35 +74,32 @@ function DayPage() {
         setSelectedDate(date);
     }
 
+    function renderList() {
+        return <ul className="entry-list">
+            {entries.map((entry, index) => (
+                <li className="entry-item" key={index}>
+                    <p>{entry.text}</p>
+                    <button onClick={()=> handleDeleteEntry(index)}>Удалить</button>
+                    <button onClick={()=> handleEditEntry(index)}>Редактировать</button>
+                </li>
+            ))}
+        </ul>
+    }
+
+    function renderDayTittle() {
+        return <h2 className="dayTittle">Страница дня {selectedDate.toLocaleString('ru', {day: 'numeric', month: 'long', year: 'numeric'})}</h2>
+    }
+
     return (
         <div className="day-page">
-            <h2 className="dayTittle">Страница дня {selectedDate.toLocaleString('ru', {day: 'numeric', month: 'long', year: 'numeric'})}</h2>
+            {renderDayTittle()}
             <Calendar
                 // onChange={handleDateChange}
                 entries={entries}
                 handleShowEntries={handleShowEntries}
             />
-            {selectedDate.toDateString() === new Date().toDateString() && (
-            <div className="entry-input">
-                <input
-                    type="text"
-                    value={inputValue}
-                    onChange={(event) => setInputValue(event.target.value)}
-                />
-                <button onClick={handleAddEntry}>
-                    {isEditing ? 'Сохранить' : 'Добавить'}
-                </button>
-            </div>
-            )}
-            <ul className="entry-list">
-                {entries.map((entry, index) => (
-                    <li className="entry-item" key={index}>
-                        <p>{entry.text}</p>
-                        <button onClick={()=> handleDeleteEntry(index)}>Удалить</button>
-                        <button onClick={()=> handleEditEntry(index)}>Редактировать</button>
-                    </li>
-                ))}
-            </ul>
+            {handleDateChange()}
+            {renderList()}
         </div>
     );
 }

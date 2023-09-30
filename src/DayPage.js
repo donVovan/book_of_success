@@ -19,9 +19,11 @@ function DayPage() {
                     value={inputValue}
                     onChange={(event) => setInputValue(event.target.value)}
                 />
-                <button onClick={handleAddEntry}>
-                    {isEditing ? 'Сохранить' : 'Добавить'}
-                </button>
+                <p className="addButton">
+                    <button onClick={handleAddEntry} className="button">
+                        {isEditing ? 'Сохранить' : 'Добавить'}
+                    </button>
+                </p>
             </div>
         }
     }

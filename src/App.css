@@ -137,9 +137,14 @@ td {
 }
 
 textarea {
-    resize: vertical;
-    width: 350px;
-    height: 200px;
+
+    resize: both;
+    width: 500px;
+    height: 190px;
+}
+
+.addButton {
+    margin: 5px 0 0 0;
 }
 
 .footer {

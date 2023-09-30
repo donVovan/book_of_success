@@ -10,8 +10,8 @@ function CalendarPr({previousMonth, nextMonth, selectedDate, renderCalendar, han
         <div className="days">
             {renderCalendar()}
             {handleDateChange()}
-            {renderList()}
-        </div>
+
+        </div>{renderList()}
     </div>
 }
 

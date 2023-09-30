@@ -15,8 +15,7 @@ function DayPage() {
    function handleDateChange() {
         if (selectedDate.toDateString() === new Date().toDateString()){
             return <div className="entry-input">
-                <input
-                    type="text"
+                <textarea
                     value={inputValue}
                     onChange={(event) => setInputValue(event.target.value)}
                 />

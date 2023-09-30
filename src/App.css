@@ -104,6 +104,13 @@ body._lock {
     outline: none;
     box-shadow: 0 0 0 4px #2C351A;
 }
+
+.days {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 table {
     font-family: Roboto,"Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     text-align: center;
@@ -128,6 +135,13 @@ td {
     color: #8D8173;
     cursor: pointer;
 }
+
+textarea {
+    resize: vertical;
+    width: 350px;
+    height: 200px;
+}
+
 .footer {
     color: #391C1C;
     font-size: 12px;

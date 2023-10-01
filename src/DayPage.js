@@ -2,16 +2,20 @@ import React, {useState} from "react";
 import Calendar from "./Calendar";
 
 function DayPage() {
-    const [isEditing, setIsEditing] = useState(false);
-    const [selectedDate, setSelectedDate] = useState(new Date());
-    const [inputValue, setInputValue] = useState('');
-    const [entries, setEntries] = useState([{
+    const [isEditing, setIsEditing] = useState(false); /* хранит состояние редактирования. true
+    означает, что пользователь редактирует запись */
+    const [selectedDate, setSelectedDate] = useState(new Date()); // хранит выбранную дату
+    const [inputValue, setInputValue] = useState(''); // хранит значение текстового поля ввода
+    const [entries, setEntries] = useState([{ /*хранит массив объектов, представляющих
+        записи. Каждая запись содержит дату и текст */
         date: new Date(),
         text:''
     }]);
-    const [editIndex, setEditIndex] = useState(-1);
+    const [editIndex, setEditIndex] = useState(-1); /* хранит индекс записи, которую пользователь
+    хочет отредактировать. Значение -1 означает, что нет активной редакции */
 
-
+   /* функция для рисования элемента добавления записи через текстовое поле и кнопку. Она рендерится только если
+   выбранная дата равна текущей дате */
    function renderAddElement() {
         if (selectedDate.toDateString() === new Date().toDateString()){
             return <div className="entry-input">
@@ -28,7 +32,10 @@ function DayPage() {
         }
     }
 
-    // Функция для обработки Добавления записи
+    /*  функция для добавления новой записи или сохранения измененной записи. Если выбранная дата не равна текущей дате
+      или ввод пуст, функция ничего не делает. В противном случае, она обновляет массив записей (entries), либо
+      добавляет новую запись, либо обновляет существующую. Также сбрасывает значение ввода на пустое и завершает
+      редактирование */
 
     function handleAddEntry() {
         if (selectedDate.toDateString() !== new Date().toDateString()){
@@ -55,13 +62,15 @@ function DayPage() {
         }
     }
 
-    //Функция для обработки удаления записи
+    /* функция для удаления записи по указанному индексу. Она фильтрует массив записей, оставляя только записи с
+    другими индексами */
     function handleDeleteEntry(index) {
         const updatedEntries = entries.filter((entry, i) => i !== index);
         setEntries(updatedEntries);
     }
 
-    //Функция для редактирования записи
+    /* функция для подготовки к редактированию записи. Она устанавливает значение ввода в текст редактируемой записи,
+    устанавливает индекс записи в editIndex и устанавливает флаг isEditing в true */
     function handleEditEntry(index) {
         const entryToEdit = entries[index];
         // setSelectedDate(new Date(entryToEdit.date));
@@ -70,11 +79,14 @@ function DayPage() {
         setIsEditing(true);
     }
 
-    //Функция для смены даты
+    // функция для обновления выбранной даты
     function handleShowEntries(date) {
         setSelectedDate(date);
     }
 
+
+    /* функция для рендеринга списка всех записей. Она итерирует по массиву записей и отображает каждую запись в виде
+    элемента списка. Каждая запись имеет кнопку для удаления и кнопку для редактирования. */
     function renderList() {
         return <ul className="entry-list">
             {entries.map((entry, index) => (
@@ -87,7 +99,7 @@ function DayPage() {
             ))}
         </ul>
     }
-
+    // функция для отображения заголовка страницы дня с выбранной датой
     function renderDayTittle() {
         return <h2 className="dayTittle">Страница дня {selectedDate.toLocaleString('ru', {day: 'numeric', month: 'long', year: 'numeric'})}</h2>
     }

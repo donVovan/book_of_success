@@ -1,5 +1,5 @@
 import React from "react";
-import DayPage from "./DayPage";
+import DayPage from "./Containers/DayPage";
 
 function Main() {
     return <main className="content">

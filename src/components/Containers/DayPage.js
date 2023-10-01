@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 //import Calendar from "./Calendar";
-import CalendarPr from "./CalendarPr";
+import CalendarPr from "../Presentation/CalendarPr";
 
 function DayPage() {
     const [isEditing, setIsEditing] = useState(false); /* хранит состояние редактирования. true

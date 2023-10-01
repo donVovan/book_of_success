@@ -79,7 +79,7 @@ function DayPage() {
         return <ul className="entry-list">
             {entries.map((entry, index) => (
                 <li className="entry-item" key={index}>
-                    <p>{entry.date.toLocaleString()}</p><p>{entry.text}</p><p className="entry-buttons">
+                    <p>{entry.text}</p><p className="entry-buttons">
                     <button onClick={() => handleDeleteEntry(index)} className="button">Удалить</button>
                     <button onClick={() => handleEditEntry(index)} className="button">Редактировать</button>
                 </p>

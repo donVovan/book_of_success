@@ -2,18 +2,7 @@ import React from "react";
 import "./Calendar.css";
 import CalendarPr from "./CalendarPr";
 
-function Calendar({entries, handleShowEntries, renderList, renderAddElement, previousMonth, nextMonth, renderCalendar, selectedDate, setSelectedDate}) {
-    // const [selectedDate, setSelectedDate] = useState(new Date());
-
- /*   function handleChange(date) {
-        setSelectedDate(date);
-        onChange(date);
-    }*/
-
-
-
-
-
+function Calendar({renderList, renderAddElement, previousMonth, nextMonth, renderCalendar, selectedDate}) {
     return <div>
         <CalendarPr
             previousMonth={previousMonth}

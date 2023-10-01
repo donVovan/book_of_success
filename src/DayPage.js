@@ -6,13 +6,13 @@ function DayPage() {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [inputValue, setInputValue] = useState('');
     const [entries, setEntries] = useState([{
-        date:'',
+        date: new Date(),
         text:''
     }]);
     const [editIndex, setEditIndex] = useState(-1);
 
-    // Функция для обработки выбора даты
-   function handleDateChange() {
+
+   function renderAddElement() {
         if (selectedDate.toDateString() === new Date().toDateString()){
             return <div className="entry-input">
                 <textarea
@@ -79,7 +79,7 @@ function DayPage() {
         return <ul className="entry-list">
             {entries.map((entry, index) => (
                 <li className="entry-item" key={index}>
-                    <p>{entry.text}</p><p className="entry-buttons">
+                    <p>{entry.date.toLocaleString()}</p><p>{entry.text}</p><p className="entry-buttons">
                     <button onClick={() => handleDeleteEntry(index)} className="button">Удалить</button>
                     <button onClick={() => handleEditEntry(index)} className="button">Редактировать</button>
                 </p>
@@ -96,7 +96,7 @@ function DayPage() {
         <div className="day-page">
             {renderDayTittle()}
             <Calendar
-                handleDateChange={handleDateChange}
+                renderAddElement={renderAddElement}
                 renderList={renderList}
                 entries={entries}
                 handleShowEntries={handleShowEntries}

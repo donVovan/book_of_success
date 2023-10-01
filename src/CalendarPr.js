@@ -1,6 +1,6 @@
 import React from "react";
 
-function CalendarPr({previousMonth, nextMonth, selectedDate, renderCalendar, handleDateChange, renderList}) {
+function CalendarPr({previousMonth, nextMonth, selectedDate, renderCalendar, renderList, renderAddElement}) {
     return <div className="calendar">
         <div className="selectMonth">
             <button onClick={previousMonth} className="button">&#129152; назад</button>
@@ -9,7 +9,7 @@ function CalendarPr({previousMonth, nextMonth, selectedDate, renderCalendar, han
         </div>
         <div className="days">
             {renderCalendar()}
-            {handleDateChange()}
+            {renderAddElement()}
 
         </div>{renderList()}
     </div>

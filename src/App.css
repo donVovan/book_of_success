@@ -163,3 +163,10 @@ margin: 10px 0;
     flex-shrink: 0;
     padding: 5px 0;
 }
+
+.highlighted {
+    font-weight: bold;
+}
+.selected {
+    color: red;
+}

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import Calendar from "./Calendar";
+//import Calendar from "./Calendar";
+import CalendarPr from "./CalendarPr";
 
 function DayPage() {
     const [isEditing, setIsEditing] = useState(false); /* хранит состояние редактирования. true
@@ -184,16 +185,13 @@ function DayPage() {
     return (
         <div className="day-page">
             {renderDayTittle()}
-            <Calendar
+            <CalendarPr
                 renderAddElement={renderAddElement}
                 renderList={renderList}
-                entries={entries}
-                handleShowEntries={handleShowEntries}
                 previousMonth={previousMonth}
                 nextMonth={nextMonth}
                 renderCalendar={renderCalendar}
                 selectedDate={selectedDate}
-                setSelectedDate={setSelectedDate}
             />
         </div>
     );

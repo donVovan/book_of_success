@@ -13,7 +13,7 @@ function DayPage() {
     }]);
     const [editIndex, setEditIndex] = useState(-1); /* хранит индекс записи, которую пользователь
     хочет отредактировать. Значение -1 означает, что нет активной редакции */
-
+    const filteredEntries = entries.filter(entry => entry.date.toDateString() === selectedDate.toDateString());
    /* функция для рисования элемента добавления записи через текстовое поле и кнопку. Она рендерится только если
    выбранная дата равна текущей дате */
    function renderAddElement() {
@@ -89,7 +89,7 @@ function DayPage() {
     элемента списка. Каждая запись имеет кнопку для удаления и кнопку для редактирования. */
     function renderList() {
         return <ul className="entry-list">
-            {entries.map((entry, index) => (
+            {filteredEntries.map((entry, index) => (
                 <li className="entry-item" key={index}>
                     <p>{entry.text}</p><p className="entry-buttons">
                     <button onClick={() => handleDeleteEntry(index)} className="button">Удалить</button>

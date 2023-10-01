@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./Calendar.css";
 import CalendarPr from "./CalendarPr";
 
-function Calendar({entries, handleShowEntries, renderList, renderAddElement}) {
+function Calendar({entries, handleShowEntries, renderList, renderAddElement, previousMonth, nextMonth}) {
     const [selectedDate, setSelectedDate] = useState(new Date());
 
  /*   function handleChange(date) {
@@ -10,17 +10,7 @@ function Calendar({entries, handleShowEntries, renderList, renderAddElement}) {
         onChange(date);
     }*/
 
-    function previousMonth() {
-        const currentDate = new Date(selectedDate);
-        currentDate.setMonth(currentDate.getMonth()-1);
-        setSelectedDate(currentDate);
-    }
 
-    function nextMonth() {
-        const currentDate = new Date(selectedDate);
-        currentDate.setMonth(currentDate.getMonth()+1);
-        setSelectedDate(currentDate);
-    }
 
     function renderCalendar() {
 

@@ -104,6 +104,18 @@ function DayPage() {
         return <h2 className="dayTittle">Страница дня {selectedDate.toLocaleString('ru', {day: 'numeric', month: 'long', year: 'numeric'})}</h2>
     }
 
+    function previousMonth() {
+        const currentDate = new Date(selectedDate);
+        currentDate.setMonth(currentDate.getMonth()-1);
+        setSelectedDate(currentDate);
+    }
+
+    function nextMonth() {
+        const currentDate = new Date(selectedDate);
+        currentDate.setMonth(currentDate.getMonth()+1);
+        setSelectedDate(currentDate);
+    }
+
     return (
         <div className="day-page">
             {renderDayTittle()}
@@ -112,6 +124,8 @@ function DayPage() {
                 renderList={renderList}
                 entries={entries}
                 handleShowEntries={handleShowEntries}
+                previousMonth={previousMonth}
+                nextMonth={nextMonth}
             />
         </div>
     );
